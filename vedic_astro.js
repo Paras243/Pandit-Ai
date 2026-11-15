@@ -473,7 +473,127 @@ return finalReport;
 // GEMINI AI — PREMIUM STRUCTURED UI
 // ==========================================
 
+/* Pandit AI — self-contained premium AI interpretation styling.
+   Injected by the JS so the design does not depend on an extra CSS file being copied. */
+function ensurePanditAIInterpretationStyles() {
+  if (document.getElementById("panditAIInterpretationStyles")) return;
+  const style = document.createElement("style");
+  style.id = "panditAIInterpretationStyles";
+  style.textContent = `
+    .vedic-page #panditInterpretation .astro-pandit-content { min-width:0; }
+    .vedic-page #panditInterpretation .gemini-panel {
+      display:block !important; position:relative; overflow:hidden; isolation:isolate;
+      padding:clamp(22px,3.4vw,42px) !important; margin:0 !important;
+      color:#f7f2e8 !important; background:radial-gradient(ellipse at 90% 0%,rgba(201,167,107,.18),transparent 38%),linear-gradient(135deg,#101a30 0%,#192844 58%,#223451 100%) !important;
+      border:1px solid rgba(201,167,107,.55) !important; border-radius:22px !important;
+      box-shadow:0 24px 60px rgba(12,22,40,.20) !important;
+    }
+    .vedic-page #panditInterpretation .gemini-panel:before {
+      content:""; position:absolute; inset:0 0 auto; height:3px; z-index:-1;
+      background:linear-gradient(90deg,transparent,#e4c58d 22%,#fff0c8 50%,#c39a5e 78%,transparent);
+    }
+    .vedic-page #panditInterpretation .gemini-panel-header { margin:0 0 25px !important; max-width:850px; }
+    .vedic-page #panditInterpretation .gemini-eyebrow {
+      display:inline-flex !important; align-items:center; gap:9px; margin:0 0 13px !important;
+      padding:8px 12px; color:#f0d9aa !important; background:rgba(201,167,107,.11);
+      border:1px solid rgba(236,214,168,.28); border-radius:999px;
+      font-size:10px !important; font-weight:800; letter-spacing:1.6px; text-transform:uppercase;
+    }
+    .vedic-page #panditInterpretation .gemini-panel-header h3 {
+      margin:0 0 11px !important; color:#fffaf0 !important;
+      font:600 clamp(27px,3.5vw,40px)/1.14 var(--display,"Playfair Display",serif) !important;
+      letter-spacing:-.6px;
+    }
+    .vedic-page #panditInterpretation .gemini-panel-header p {
+      max-width:690px; margin:0 !important; color:#c1cada !important;
+      font-size:14px !important; line-height:1.85 !important;
+    }
+    .vedic-page #panditInterpretation .gemini-consent {
+      display:flex !important; align-items:flex-start; gap:12px; margin:22px 0 24px !important;
+      padding:15px 17px !important; color:#e8e1d3 !important;
+      background:rgba(255,255,255,.065) !important; border:1px solid rgba(236,214,168,.24) !important;
+      border-radius:12px !important; font-size:12px !important; line-height:1.7 !important;
+    }
+    .vedic-page #panditInterpretation .gemini-consent input { flex:0 0 auto; width:17px; height:17px; margin:2px 0 0 !important; accent-color:#d5b477; }
+    .vedic-page #panditInterpretation .gemini-topic-grid {
+      display:grid !important; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px !important;
+      margin:22px 0 28px !important;
+    }
+    .vedic-page #panditInterpretation .gemini-topic-btn {
+      display:flex !important; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      min-width:0; min-height:128px !important; padding:17px 16px !important; text-align:left;
+      color:#26334b !important; background:linear-gradient(145deg,#fffdf8,#f3eee3) !important;
+      border:1px solid rgba(226,211,184,.9) !important; border-radius:13px !important;
+      box-shadow:0 7px 18px rgba(0,0,0,.10); cursor:pointer; transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
+    }
+    .vedic-page #panditInterpretation .gemini-topic-btn:hover,
+    .vedic-page #panditInterpretation .gemini-topic-btn:focus-visible,
+    .vedic-page #panditInterpretation .gemini-topic-btn.active {
+      transform:translateY(-3px); color:#18243a !important; background:linear-gradient(145deg,#f7e8c7,#e7cb96) !important;
+      border-color:#d2ad6d !important; box-shadow:0 13px 25px rgba(0,0,0,.19); outline:none;
+    }
+    .vedic-page #panditInterpretation .gemini-topic-btn span { display:block; font-size:22px; line-height:1.2; }
+    .vedic-page #panditInterpretation .gemini-topic-btn strong { display:block; margin:10px 0 0 !important; color:inherit !important; font-size:12px !important; line-height:1.35; }
+    .vedic-page #panditInterpretation .gemini-topic-btn small { display:block; margin:6px 0 0 !important; color:#6d7581 !important; font-size:10px !important; line-height:1.5; }
+    .vedic-page #panditInterpretation .gemini-topic-btn:hover small,
+    .vedic-page #panditInterpretation .gemini-topic-btn.active small { color:#4d4c48 !important; }
+    .vedic-page #panditInterpretation .gemini-insight-card,
+    .vedic-page #panditInterpretation .gemini-response,
+    .vedic-page #panditInterpretation .gemini-result,
+    .vedic-page #panditInterpretation .gemini-output {
+      margin:20px 0 0 !important; padding:clamp(18px,2.5vw,28px) !important;
+      color:#344056 !important; background:#fffdf8 !important; border:1px solid #e6d9c2 !important;
+      border-radius:15px !important; box-shadow:0 12px 28px rgba(0,0,0,.12);
+      font-size:14px !important; line-height:1.9 !important;
+    }
+    .vedic-page #panditInterpretation .gemini-insight-card h3,
+    .vedic-page #panditInterpretation .gemini-insight-card h4,
+    .vedic-page #panditInterpretation .gemini-response h3,
+    .vedic-page #panditInterpretation .gemini-response h4 { color:#172844 !important; line-height:1.35; }
+    .vedic-page #panditInterpretation .astro-ask-panel {
+      margin:26px 0 0 !important; padding:clamp(18px,2.5vw,27px) !important;
+      color:#f5f0e6 !important; background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.035)) !important;
+      border:1px solid rgba(236,214,168,.32) !important; border-radius:16px !important;
+    }
+    .vedic-page #panditInterpretation .astro-ask-panel h4 { margin:0 0 8px !important; color:#f1d9a9 !important; font-size:19px !important; }
+    .vedic-page #panditInterpretation .astro-ask-panel p { margin:0 0 15px !important; color:#c2ccda !important; font-size:13px !important; line-height:1.75 !important; }
+    .vedic-page #panditInterpretation .astro-question-input {
+      display:block; width:100% !important; min-height:112px !important; padding:15px 16px !important;
+      color:#1e2b42 !important; background:#fffdf8 !important; border:1px solid #d8c7a7 !important;
+      border-radius:11px !important; font:inherit; font-size:13px !important; line-height:1.6; resize:vertical;
+    }
+    .vedic-page #panditInterpretation .astro-question-input:focus { outline:3px solid rgba(218,184,119,.24); border-color:#d5b477 !important; }
+    .vedic-page #panditInterpretation .astro-ask-button {
+      display:inline-flex; align-items:center; justify-content:center; min-height:46px !important; margin:12px 0 0 !important;
+      padding:0 23px !important; color:#17233a !important; background:linear-gradient(135deg,#f0d9aa,#c5a269) !important;
+      border:1px solid #e8d2a6 !important; border-radius:8px !important; font-size:12px !important; font-weight:800; cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.16); transition:transform .2s ease;
+    }
+    .vedic-page #panditInterpretation .astro-ask-button:hover { transform:translateY(-2px); }
+    .vedic-page #panditInterpretation .astro-question-suggestions { display:flex; flex-wrap:wrap; gap:9px; margin:15px 0 0 !important; }
+    .vedic-page #panditInterpretation .astro-question-suggestions button {
+      padding:9px 13px !important; color:#e9d7b6 !important; background:rgba(255,255,255,.07) !important;
+      border:1px solid rgba(236,214,168,.28) !important; border-radius:999px !important; font-size:11px !important; cursor:pointer;
+    }
+    .vedic-page #panditInterpretation .astro-question-suggestions button:hover { color:#17233a !important; background:#e8d1a5 !important; }
+    .vedic-page #panditInterpretation #kundaliMatching { margin-top:25px !important; }
+    @media(max-width:900px) { .vedic-page #panditInterpretation .gemini-topic-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:520px) {
+      .vedic-page #panditInterpretation .gemini-panel { padding:19px 15px !important; border-radius:16px !important; }
+      .vedic-page #panditInterpretation .gemini-topic-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px !important; }
+      .vedic-page #panditInterpretation .gemini-topic-btn { min-height:116px !important; padding:12px 10px !important; }
+      .vedic-page #panditInterpretation .gemini-topic-btn strong { font-size:11px !important; }
+      .vedic-page #panditInterpretation .gemini-topic-btn small { font-size:9px !important; }
+      .vedic-page #panditInterpretation .astro-ask-panel { padding:16px !important; }
+      .vedic-page #panditInterpretation .astro-question-suggestions { display:grid; grid-template-columns:1fr; }
+      .vedic-page #panditInterpretation .astro-question-suggestions button { text-align:left; border-radius:9px !important; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function addGeminiExplanation(report, container, language = "en") {
+  ensurePanditAIInterpretationStyles();
   const section = document.createElement("section");
   section.className = "gemini-panel";
 
@@ -482,7 +602,7 @@ function addGeminiExplanation(report, container, language = "en") {
 
   const eyebrow = document.createElement("span");
   eyebrow.className = "gemini-eyebrow";
-  eyebrow.textContent = "✦ PARAS BABA · AI INSIGHTS";
+  eyebrow.textContent = "✦ PANDIT AI · INTELLIGENT VEDIC INSIGHTS";
 
   const heading = document.createElement("h3");
   heading.textContent = language === "hi"
@@ -578,6 +698,23 @@ function addGeminiExplanation(report, container, language = "en") {
 
   const partnerFields = document.createElement("div");
   partnerFields.className = "astro-match-fields";
+  const createMatchGroupHeading = (eyebrow, heading, description) => {
+    const group = document.createElement("div");
+    group.className = "astro-match-group-heading";
+    const kicker = document.createElement("span");
+    kicker.textContent = eyebrow;
+    const title = document.createElement("h5");
+    title.textContent = heading;
+    const copy = document.createElement("p");
+    copy.textContent = description;
+    group.append(kicker, title, copy);
+    partnerFields.appendChild(group);
+  };
+  createMatchGroupHeading(
+    language === "hi" ? "पहला व्यक्ति" : "PERSON 01",
+    language === "hi" ? "आपकी जन्म जानकारी" : "Your birth details",
+    language === "hi" ? "पहले व्यक्ति की जानकारी भरें" : "Start with the first person's details"
+  );
   const createMatchField = (labelText, type, placeholder = "", required = true) => {
     const label = document.createElement("label");
     label.className = "astro-match-field";
@@ -621,6 +758,11 @@ function addGeminiExplanation(report, container, language = "en") {
     ["groom", language === "hi" ? "वर (Groom)" : "Groom"],
     ["bride", language === "hi" ? "वधू (Bride)" : "Bride"]
   ]);
+  createMatchGroupHeading(
+    language === "hi" ? "दूसरा व्यक्ति" : "PERSON 02",
+    language === "hi" ? "साथी की जन्म जानकारी" : "Partner's birth details",
+    language === "hi" ? "मिलान के लिए साथी का सही जन्म विवरण दें" : "Add your partner's accurate birth details for comparison"
+  );
   const partnerName = createMatchField(language === "hi" ? "व्यक्ति B का नाम (वैकल्पिक)" : "Person B name (optional)", "text", "", false);
   const partnerGender = createMatchSelect(language === "hi" ? "व्यक्ति B का लिंग" : "Person B gender", [
     ["female", language === "hi" ? "महिला" : "Female"],
@@ -1055,11 +1197,19 @@ function addGeminiExplanation(report, container, language = "en") {
       matchConsent.focus();
       return;
     }
+    if (!consent.checked) {
+      matchStatus.textContent = language === "hi"
+        ? "AI व्याख्या के लिए ऊपर दी गई सहमति भी चुनें।"
+        : "Please also select the AI interpretation consent above to receive the matching explanation.";
+      consent.focus();
+      return;
+    }
 
     matchButton.disabled = true;
     matchButton.textContent = language === "hi" ? "मिलान हो रहा है..." : "Matching...";
     matchStatus.textContent = language === "hi" ? "अष्टकूट गणना की जा रही है..." : "Calculating the compatibility measures and chart checks in parallel. Some advanced details may be marked unavailable if the provider is slow...";
     matchOutput.replaceChildren();
+    matchOutput.scrollIntoView({ behavior: "smooth", block: "start" });
     try {
       const response = await fetch("/.netlify/functions/kundali-matching", {
         method: "POST",
@@ -1096,6 +1246,7 @@ function addGeminiExplanation(report, container, language = "en") {
             reading.className = "astro-match-ai-reading";
             renderGeminiExplanation(aiPayload.explanation, reading, aiPayload.engine);
             matchOutput.appendChild(reading);
+            matchOutput.scrollIntoView({ behavior: "smooth", block: "start" });
             if (aiPayload.finishReason === "length") {
               const truncated = document.createElement("p");
               truncated.className = "astro-match-warning";
@@ -1156,6 +1307,13 @@ function addGeminiExplanation(report, container, language = "en") {
 
   const output = document.createElement("div");
   output.className = "gemini-results";
+  output.id = "panditAiInterpretationOutput";
+
+  // Bring the generated interpretation into view on both desktop and mobile.
+  function scrollToInterpretation(target = output) {
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   askButton.addEventListener("click", async () => {
     const question = questionInput.value.trim();
@@ -1266,6 +1424,7 @@ function addGeminiExplanation(report, container, language = "en") {
         ? "AstroLogics के संबंधित डेटा का विश्लेषण हो रहा है। कृपया प्रतीक्षा करें..."
         : "Analysing the relevant AstroLogics data. Please wait...";
       output.appendChild(loading);
+      scrollToInterpretation(output);
 
       try {
         const response = await fetch("/.netlify/functions/ai-explain", {
@@ -1290,6 +1449,7 @@ function addGeminiExplanation(report, container, language = "en") {
         status.textContent = language === "hi"
           ? `${title} की व्याख्या तैयार है।`
           : `${title} explanation is ready.`;
+        scrollToInterpretation(output);
 
       } catch (error) {
         if (requestId !== activeRequest) return;
@@ -1300,6 +1460,7 @@ function addGeminiExplanation(report, container, language = "en") {
         const errorText = document.createElement("p");
         errorText.textContent = error.message || "Unable to generate this explanation.";
         output.appendChild(errorText);
+        scrollToInterpretation(output);
 
         status.textContent = language === "hi"
           ? "व्याख्या तैयार नहीं हो सकी। कृपया बाद में प्रयास करें।"
@@ -1395,7 +1556,8 @@ function renderGeminiExplanation(text, container, engineData = null) {
 
   function createCard(title) {
     const card = document.createElement("article");
-    card.className = "gemini-insight-card";
+    const cardIndex = cardGrid.querySelectorAll(":scope > .gemini-insight-card").length;
+    card.className = `gemini-insight-card gemini-bento-card gemini-bento-card-${cardIndex + 1}`;
 
     const heading = document.createElement("h4");
     heading.textContent = title;
@@ -1537,6 +1699,22 @@ function renderGeminiExplanation(text, container, engineData = null) {
     const paragraph = document.createElement("p");
     appendInlineMarkdown(paragraph, line);
     body.appendChild(paragraph);
+
+    // Keep long AI paragraphs scannable; readers can expand the full text.
+    if (line.length > 250) {
+      paragraph.classList.add("gemini-compact-copy");
+      const expand = document.createElement("button");
+      expand.type = "button";
+      expand.className = "gemini-read-more";
+      expand.textContent = "Read full insight";
+      expand.setAttribute("aria-expanded", "false");
+      expand.addEventListener("click", () => {
+        const expanded = paragraph.classList.toggle("is-expanded");
+        expand.textContent = expanded ? "Show less" : "Read full insight";
+        expand.setAttribute("aria-expanded", String(expanded));
+      });
+      body.appendChild(expand);
+    }
   });
 
   // Structured opportunity and strengths panels are guaranteed when the

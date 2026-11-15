@@ -224,6 +224,38 @@
 }
 
 
+
+/* =========================================
+   MOBILE FIX — GYANAM SECTION
+========================================= */
+
+@media (max-width: 760px) {
+  .about-section .about-side-note {
+    display: block !important;
+    justify-self: start;
+    align-self: start;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 14px 0 14px 20px;
+    border-left: 1px solid rgba(216, 183, 121, .5);
+  }
+
+  .about-section .about-side-note span {
+    display: block;
+    font-size: 36px;
+    color: var(--gold);
+  }
+
+  .about-section .about-side-note small {
+    display: block;
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    color: #9ca8bd;
+    margin-top: 6px;
+  }
+}
+
 /* =========================================
    PANDIT AI — VEDIC / WESTERN CHOICE SECTION
 ========================================= */
@@ -590,4 +622,939 @@
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
   }
+}
+
+
+/* ======================================================
+   PANDIT AI — MERGED ABOUT / HOW IT WORKS / PRINCIPLES
+   Replaces the three former homepage sections.
+====================================================== */
+
+.merged-about-section {
+  display: block;
+  padding: 92px clamp(22px, 8vw, 120px);
+  background:
+    radial-gradient(ellipse at 8% 90%, rgba(56, 73, 121, .20), transparent 42%),
+    linear-gradient(115deg, #121c37, #0b1227 72%);
+  color: var(--text);
+}
+
+.merged-about-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  column-gap: clamp(35px, 7vw, 90px);
+  row-gap: 34px;
+  align-items: center;
+}
+
+.merged-about-intro {
+  max-width: 520px;
+}
+
+.merged-about-intro .section-kicker {
+  color: var(--gold);
+}
+
+.merged-about-intro h2 {
+  margin: 17px 0;
+  font-size: clamp(36px, 4.2vw, 54px);
+  line-height: 1.14;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.merged-about-intro h2 em {
+  color: var(--gold-light);
+}
+
+.merged-about-intro > p {
+  max-width: 500px;
+  margin: 0 0 25px;
+  color: #aab4c8;
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.merged-about-intro .button {
+  width: fit-content;
+}
+
+.merged-about-features {
+  display: grid;
+  gap: 0;
+}
+
+.merged-about-feature {
+  display: grid;
+  grid-template-columns: 34px 38px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .10);
+}
+
+.merged-about-feature:first-child {
+  border-top: 1px solid rgba(255, 255, 255, .10);
+}
+
+.merged-feature-number {
+  padding-top: 2px;
+  color: var(--gold);
+  font: italic 16px var(--display);
+}
+
+.merged-feature-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(216, 183, 121, .28);
+  border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 13px;
+}
+
+.merged-about-feature h3 {
+  margin: 0 0 5px;
+  color: #f5f3ef;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.merged-about-feature p {
+  max-width: 390px;
+  color: #9ba7bd;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.merged-about-principles {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(216, 183, 121, .22);
+}
+
+.merged-about-principles > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd2df;
+  font-size: 11px;
+}
+
+.merged-about-principles i {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.merged-gyanam {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-self: end;
+  padding-left: 18px;
+  border-left: 1px solid rgba(216, 183, 121, .42);
+  color: var(--gold);
+}
+
+.merged-gyanam span {
+  font: 32px var(--display);
+}
+
+.merged-gyanam small {
+  max-width: 125px;
+  color: #9ca8bd;
+  font-size: 8px;
+  line-height: 1.7;
+  letter-spacing: 1.3px;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 760px) {
+  .merged-about-section {
+    padding: 72px 24px;
+  }
+
+  .merged-about-inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 25px;
+  }
+
+  .merged-about-intro {
+    max-width: 100%;
+  }
+
+  .merged-about-intro h2 {
+    font-size: clamp(34px, 9vw, 43px);
+    letter-spacing: -1.6px;
+  }
+
+  .merged-about-intro > p {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .merged-about-features {
+    margin-top: 2px;
+  }
+
+  .merged-about-feature {
+    grid-template-columns: 27px 34px minmax(0, 1fr);
+    gap: 10px;
+    padding: 17px 0;
+  }
+
+  .merged-feature-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .merged-about-feature h3 {
+    font-size: 14px;
+  }
+
+  .merged-about-feature p {
+    font-size: 10px;
+  }
+
+  .merged-about-principles {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding-top: 20px;
+  }
+
+  .merged-about-principles > div {
+    font-size: 10px;
+  }
+
+  .merged-gyanam {
+    grid-column: 1;
+    justify-self: start;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .merged-about-section {
+    padding: 62px 19px;
+  }
+
+  .merged-about-feature {
+    grid-template-columns: 23px 30px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .merged-about-feature p {
+    font-size: 9px;
+  }
+}
+
+
+/* ======================================================
+   PANDIT AI — THOUGHTS & REFLECTIONS / FOCUS CARDS
+   Vanilla HTML, CSS and JavaScript implementation
+====================================================== */
+.thoughts-section {
+  --thought-gold: #d8b779;
+  --thought-cream: #f5f0e7;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(76px, 9vw, 118px) 24px;
+  color: var(--thought-cream);
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(91, 75, 129, .20), transparent 38%),
+    radial-gradient(ellipse at 90% 85%, rgba(167, 125, 65, .10), transparent 35%),
+    #090f20;
+}
+.thoughts-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .22;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(232, 211, 171, .55) .7px, transparent .7px);
+  background-size: 31px 31px;
+  mask-image: linear-gradient(135deg, #000, transparent 72%);
+}
+.thoughts-container { width: min(1160px, 100%); margin: 0 auto; }
+.thoughts-heading { max-width: 690px; margin: 0 auto 48px; text-align: center; }
+.thoughts-eyebrow {
+  color: var(--thought-gold); font-size: 9px; font-weight: 700;
+  letter-spacing: 2.8px;
+}
+.thoughts-heading h2 {
+  margin: 14px 0 13px; font: 500 clamp(35px, 4.5vw, 54px)/1.15 var(--display);
+  letter-spacing: -1.8px;
+}
+.thoughts-heading h2 em { color: var(--thought-gold); font-weight: 400; }
+.thoughts-heading p { max-width: 560px; margin: 0 auto; color: #aab4c8; font-size: 13px; line-height: 1.9; }
+.thoughts-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px; align-items: stretch;
+}
+.thought-card {
+  position: relative; min-width: 0; height: 365px; overflow: hidden;
+  isolation: isolate; border: 1px solid rgba(216,183,121,.19);
+  border-radius: 13px; background: #151d31;
+  transition: transform .35s ease, border-color .35s ease, filter .35s ease, box-shadow .35s ease;
+  cursor: pointer; outline: none;
+}
+.thought-card::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(5,9,18,.02) 18%, rgba(5,9,18,.22) 45%, rgba(5,9,18,.94) 100%);
+  transition: opacity .35s ease;
+}
+.thought-card img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease;
+}
+.thought-card-content {
+  position: absolute; z-index: 1; inset: auto 0 0; padding: 25px 23px 23px;
+  transform: translateY(8px); transition: transform .35s ease;
+}
+.thought-card-tag {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  color: #f0d9a8; font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+}
+.thought-card-tag::before { content: ""; width: 20px; height: 1px; background: var(--thought-gold); }
+.thought-card blockquote {
+  margin: 0; color: #fffaf1; font: 500 clamp(18px, 2vw, 23px)/1.42 var(--display);
+  text-wrap: pretty;
+}
+.thought-card cite {
+  display: block; margin-top: 13px; color: rgba(245,240,231,.68);
+  font: normal 10px/1.5 var(--sans); letter-spacing: .5px;
+}
+.thought-card:hover, .thought-card:focus-visible, .thought-card.is-active {
+  transform: translateY(-5px); border-color: rgba(216,183,121,.75);
+  box-shadow: 0 20px 45px rgba(0,0,0,.28);
+}
+.thought-card:hover img, .thought-card:focus-visible img, .thought-card.is-active img {
+  transform: scale(1.07); filter: saturate(1.08);
+}
+.thought-card:hover .thought-card-content, .thought-card:focus-visible .thought-card-content,
+.thought-card.is-active .thought-card-content { transform: translateY(0); }
+.thought-card:focus-visible { outline: 2px solid #f1d9a5; outline-offset: 4px; }
+.thoughts-grid:has(.thought-card:hover) .thought-card:not(:hover),
+.thoughts-grid:has(.thought-card.is-active) .thought-card:not(.is-active) {
+  filter: blur(2px) brightness(.72); transform: scale(.985);
+}
+.thoughts-footnote {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin-top: 35px; color: #8995ac; font: italic 13px var(--display);
+}
+.thoughts-footnote span { color: var(--thought-gold); font-size: 9px; }
+@media (max-width: 850px) {
+  .thoughts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .thought-card { height: 330px; }
+}
+@media (max-width: 560px) {
+  .thoughts-section { padding: 65px 17px; }
+  .thoughts-heading { margin-bottom: 30px; text-align: left; }
+  .thoughts-heading h2 { font-size: clamp(32px, 9vw, 42px); }
+  .thoughts-heading p { font-size: 11px; line-height: 1.8; }
+  .thoughts-grid { grid-template-columns: 1fr; gap: 13px; }
+  .thought-card { height: 360px; border-radius: 11px; }
+  .thought-card-content { padding: 23px 21px; transform: none; }
+  .thought-card blockquote { font-size: 22px; }
+  /* On touch screens all quote text stays visible without requiring hover. */
+  .thought-card::after { background: linear-gradient(180deg, rgba(5,9,18,.02) 5%, rgba(5,9,18,.20) 35%, rgba(5,9,18,.91) 100%); }
+  .thoughts-footnote { font-size: 12px; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thought-card, .thought-card img, .thought-card-content { transition: none !important; }
+}
+
+/* ==========================================
+   PANDIT AI — SCROLL FIX
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+.site-shell {
+  overflow: visible !important;
+}
+
+/* Give anchor destinations enough room below the header */
+#astrology,
+#thoughts,
+#about,
+#contact,
+#top {
+  scroll-margin-top: 85px;
+}
+
+
+/* ==========================================
+   THOUGHTS — RESPONSIVE 2-COLUMN GRID
+========================================== */
+
+/* Desktop: 3 columns */
+.thoughts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Tablet and mobile: 2 columns */
+@media (max-width: 850px) {
+  .thoughts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .thought-card {
+    height: 300px;
+  }
+}
+
+/* Mobile: 2 columns × 3 rows */
+@media (max-width: 560px) {
+  .thoughts-section {
+    padding: 58px 13px;
+  }
+
+  .thoughts-heading {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .thoughts-heading h2 {
+    font-size: clamp(29px, 7.5vw, 38px);
+  }
+
+  .thoughts-heading p {
+    font-size: 11px;
+  }
+
+  .thoughts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 11px;
+  }
+
+  .thought-card {
+    height: 270px;
+    min-width: 0;
+    border-radius: 10px;
+  }
+
+  .thought-card-content {
+    padding: 12px 11px;
+    transform: none;
+  }
+
+  .thought-card-tag {
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .thought-card-tag::before {
+    width: 12px;
+  }
+
+  .thought-card blockquote {
+    font-size: clamp(14px, 3.8vw, 18px);
+    line-height: 1.4;
+  }
+
+  .thought-card cite {
+    font-size: 8px;
+    margin-top: 8px;
+  }
+
+  .thought-card::after {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 9, 18, .02) 0%,
+      rgba(5, 9, 18, .25) 35%,
+      rgba(5, 9, 18, .94) 100%
+    );
+  }
+
+  .thoughts-footnote {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .thought-card {
+    height: 245px;
+  }
+
+  .thought-card-content {
+    padding: 10px 9px;
+  }
+
+  .thought-card blockquote {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 6px;
+  }
+
+  .intro-item {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    white-space: nowrap;
+    font-size: clamp(6px, 2vw, 8px);
+    letter-spacing: -0.3px;
+  }
+
+  .strip-symbol {
+    flex-shrink: 0;
+    font-size: 8px;
+  }
+
+  .intro-divider {
+    display: block;
+    flex-shrink: 0;
+    height: 12px;
+    width: 1px;
+  }
+}
+
+
+/* ==========================================
+   PANDIT AI — FOUNDER SECTION
+========================================== */
+
+.founder-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 22px;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(72, 86, 145, .13),
+      transparent 55%
+    ),
+    #080d1d;
+  color: #f5f3ef;
+}
+
+.founder-container {
+  width: min(900px, 100%);
+  margin: auto;
+}
+
+.founder-heading {
+  max-width: 650px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.founder-eyebrow {
+  color: #d8b779;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.founder-heading h2 {
+  margin: 17px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(36px, 5vw, 57px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+}
+
+.founder-heading h2 em {
+  color: #f1d9a5;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.founder-heading p {
+  max-width: 530px;
+  margin: auto;
+  color: #a9b2c5;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Main founder card */
+
+.founder-card {
+  max-width: 520px;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.founder-image {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1px solid rgba(216, 183, 121, .3);
+  background: #111d39;
+  box-shadow: 0 25px 75px rgba(0, 0, 0, .35);
+  isolation: isolate;
+}
+
+/* Founder photograph */
+
+.founder-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(100%);
+  transform: scale(1.01);
+  transition:
+    filter .8s ease,
+    transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.founder-card:hover .founder-image img {
+  filter: grayscale(0%);
+  transform: scale(1.07);
+}
+
+/* Dark image overlay */
+
+.founder-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 9, 20, .05) 15%,
+    rgba(5, 9, 20, .2) 40%,
+    rgba(5, 9, 20, .94) 100%
+  );
+  pointer-events: none;
+}
+
+/* Image label */
+
+.founder-image-label {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 30px;
+  background: rgba(8, 13, 29, .48);
+  backdrop-filter: blur(12px);
+  color: #f1d9a5;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+
+.founder-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d8b779;
+  box-shadow: 0 0 12px #d8b779;
+}
+
+/* Glass information panel */
+
+.founder-content {
+  position: absolute;
+  z-index: 3;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+}
+
+.founder-glass {
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 19px;
+  background: rgba(9, 15, 32, .68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 15px 45px rgba(0,0,0,.22);
+  transition: border-color .4s ease, transform .4s ease;
+}
+
+.founder-card:hover .founder-glass {
+  border-color: rgba(216,183,121,.48);
+  transform: translateY(-4px);
+}
+
+.founder-card-kicker {
+  color: #d8b779;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.founder-glass h3 {
+  margin: 10px 0 3px;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.founder-role {
+  color: #e0bd7c;
+  font-size: 11px;
+  letter-spacing: .7px;
+}
+
+.founder-line {
+  width: 45px;
+  height: 2px;
+  margin: 18px 0;
+  background: #d8b779;
+}
+
+.founder-quote {
+  color: #d0d5e1;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.founder-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 23px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,.13);
+  color: #aeb8ce;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+}
+
+.founder-symbol {
+  color: #e4c58d;
+  font-size: 24px;
+}
+
+/* Footer text */
+
+.founder-footnote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+  color: #9ca8bd;
+  font-size: 11px;
+  text-align: center;
+}
+
+.founder-footnote span {
+  color: #d8b779;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 600px) {
+
+  .founder-section {
+    padding: 65px 15px;
+  }
+
+  .founder-heading {
+    margin-bottom: 28px;
+  }
+
+  .founder-heading h2 {
+    font-size: 35px;
+  }
+
+  .founder-heading p {
+    font-size: 11px;
+  }
+
+  .founder-image {
+    height: 540px;
+    border-radius: 18px;
+  }
+
+  .founder-content {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .founder-glass {
+    padding: 19px;
+    border-radius: 14px;
+  }
+
+  .founder-glass h3 {
+    font-size: 26px;
+  }
+
+  .founder-quote {
+    font-size: 14px;
+  }
+
+  .founder-image-label {
+    top: 14px;
+    left: 13px;
+    font-size: 7px;
+    padding: 8px 10px;
+  }
+
+  .founder-footnote {
+    font-size: 9px;
+    margin-top: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founder-card *,
+  .founder-card *::before,
+  .founder-card *::after {
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ==========================================================
+   PANDIT AI — SINGLE GLOBAL FOOTER SYSTEM
+   Shared by homepage, astrology and Vedic pages.
+========================================================== */
+.premium-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 100px 24px 30px;
+  color: #f5f3ef;
+  background-color: #080d20;
+  background-image:
+    linear-gradient(180deg, rgba(5,10,28,.25) 0%, rgba(5,10,28,.55) 48%, rgba(5,10,28,.96) 100%),
+    url("./assets/footer_desktop.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(216,183,121,.2);
+}
+.premium-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5,10,25,.05) 0%, rgba(5,10,25,.12) 35%, rgba(5,10,25,.8) 75%, #080d20 100%);
+}
+.premium-footer .footer-container {
+  position: relative;
+  z-index: 1;
+  width: min(1160px, 100%);
+  margin: 0 auto;
+}
+.premium-footer .footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: clamp(24px, 4vw, 55px);
+  padding-bottom: 60px;
+}
+.premium-footer .footer-brand { max-width: 310px; }
+.premium-footer .footer-logo {
+  display: inline-flex; align-items: center; gap: 11px;
+  color: #fff; text-decoration: none;
+  font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 1.2px;
+}
+.premium-footer .footer-logo em { color: #d8b779; font-style: normal; }
+.premium-footer .footer-logo-symbol {
+  display: flex; align-items: center; justify-content: center;
+  width: 39px; height: 39px; border: 1px solid rgba(216,183,121,.45);
+  border-radius: 50%; color: #e4c58d; font-size: 23px;
+}
+.premium-footer .footer-brand-description { margin: 20px 0; color: #9da9bd; font-size: 12px; line-height: 1.9; }
+.premium-footer .footer-brand-note { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
+.premium-footer .footer-brand-note span:first-child { color: #e3c58e; font-family: 'Playfair Display', serif; font-size: 15px; }
+.premium-footer .footer-brand-note span:last-child { color: #8490a6; font-size: 10px; letter-spacing: .7px; }
+.premium-footer .footer-note-line { width: 35px; height: 1px; background: #d8b779; }
+.premium-footer .footer-column h3 { margin: 7px 0 22px; color: #f0d8aa; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; }
+.premium-footer .footer-column ul { display: flex; flex-direction: column; gap: 13px; margin: 0; padding: 0; list-style: none; }
+.premium-footer .footer-column li a { display: inline-block; color: #9da9bd; font-size: 12px; text-decoration: none; transition: color .25s ease, transform .25s ease; }
+.premium-footer .footer-column li a:hover { color: #e5c58b; transform: translateX(4px); }
+.premium-footer .footer-coming-soon { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 8px 10px; border: 1px solid rgba(216,183,121,.22); border-radius: 30px; color: #c9b48e; font-size: 8px; letter-spacing: 1px; }
+.premium-footer .footer-coming-soon span { width: 6px; height: 6px; border-radius: 50%; background: #d8b779; box-shadow: 0 0 9px rgba(216,183,121,.7); }
+.premium-footer .footer-quote { display: flex; justify-content: center; align-items: center; gap: 18px; padding: 27px 15px; border-top: 1px solid rgba(255,255,255,.09); border-bottom: 1px solid rgba(255,255,255,.09); text-align: center; }
+.premium-footer .footer-quote p { margin: 0; color: #c5cbd7; font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; line-height: 1.7; }
+.premium-footer .footer-quote-symbol { flex-shrink: 0; color: #d8b779; font-size: 13px; }
+.premium-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; padding-top: 24px; }
+.premium-footer .footer-copyright, .premium-footer .footer-made { color: #7f8ba0; font-size: 10px; }
+.premium-footer .footer-made span { color: #d8b779; }
+.premium-footer .footer-legal-links { display: flex; align-items: center; gap: 13px; }
+.premium-footer .footer-legal-links a { color: #8d99ad; font-size: 10px; text-decoration: none; transition: color .25s ease; }
+.premium-footer .footer-legal-links a:hover { color: #e5c58b; }
+.premium-footer .footer-legal-links span { width: 3px; height: 3px; border-radius: 50%; background: #d8b779; }
+@media (max-width: 950px) {
+  .premium-footer .footer-top { grid-template-columns: 1.3fr 1fr 1fr; gap: 34px; }
+  .premium-footer .footer-brand { grid-column: 1 / -1; max-width: 480px; }
+}
+@media (max-width: 600px) {
+  .premium-footer { padding: 90px 20px 25px; background-image: linear-gradient(180deg, rgba(5,10,28,.12) 0%, rgba(5,10,28,.25) 45%, rgba(5,10,28,.94) 75%, #080d20 100%), url("./assets/footer_mobile.png"); background-position: center top; background-size: 100% auto; }
+  .premium-footer::before { background: linear-gradient(180deg, transparent 0%, rgba(5,10,25,.15) 40%, rgba(5,10,25,.85) 75%, #080d20 100%); }
+  .premium-footer .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 12px; row-gap: 30px; padding-bottom: 40px; }
+  .premium-footer .footer-brand { grid-column: 1 / -1; max-width: 100%; }
+  .premium-footer .footer-column { min-width: 0; }
+  .premium-footer .footer-column h3 { margin-bottom: 14px; font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+  .premium-footer .footer-column ul { gap: 10px; }
+  .premium-footer .footer-column li a { font-size: 9px; line-height: 1.5; overflow-wrap: anywhere; }
+  .premium-footer .footer-coming-soon { max-width: 100%; font-size: 6px; line-height: 1.5; white-space: normal; padding: 6px; }
+  .premium-footer .footer-quote { gap: 9px; padding: 22px 4px; }
+  .premium-footer .footer-quote p { font-size: 13px; }
+  .premium-footer .footer-quote-symbol { font-size: 10px; }
+  .premium-footer .footer-bottom { flex-direction: column; align-items: center; gap: 14px; padding-top: 22px; text-align: center; }
+  .premium-footer .footer-legal-links { flex-wrap: wrap; justify-content: center; gap: 9px; }
+}
+@media (max-width: 360px) {
+  .premium-footer .footer-top { column-gap: 8px; }
+  .premium-footer .footer-column h3 { font-size: 11px; }
+  .premium-footer .footer-column li a { font-size: 8px; }
+  .premium-footer .footer-quote p { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .premium-footer .footer-column li a, .premium-footer .footer-legal-links a { transition: none; }
+}
+/* Vedic page uses a fixed bottom quick-navigation bar on small screens. */
+@media (max-width: 760px) {
+  .vedic-page .premium-footer { padding-bottom: 105px; }
 }

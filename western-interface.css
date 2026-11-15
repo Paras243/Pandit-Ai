@@ -1,0 +1,179 @@
+/* PANDIT AI — WESTERN ASTROLOGY / DISTINCT CELESTIAL EDITORIAL UI */
+.western-page {
+  --w-ink:#101629; --w-deep:#0a1020; --w-panel:#18223a; --w-panel2:#202c47;
+  --w-gold:#d8b779; --w-gold2:#f0d9a8; --w-paper:#f4f0e8; --w-muted:#aeb9cc;
+  background:var(--w-paper); color:#182238; overflow-x:hidden;
+}
+.western-page .astro-hero {
+  position:relative; overflow:hidden; isolation:isolate;
+  padding:clamp(112px,15vw,170px) 22px 76px;
+  color:#f8f4ec; text-align:left;
+  background:radial-gradient(ellipse at 82% 20%,rgba(116,105,157,.27),transparent 34%),
+    radial-gradient(ellipse at 12% 90%,rgba(216,183,121,.12),transparent 36%),
+    linear-gradient(130deg,#0a1020,#17213a 58%,#252542);
+}
+.western-page .astro-hero::before {
+  content:""; position:absolute; inset:0; z-index:-1; opacity:.18; pointer-events:none;
+  background-image:radial-gradient(#f1d9a5 1px,transparent 1px);
+  background-size:34px 34px; mask-image:linear-gradient(90deg,transparent,#000 45%,#000);
+}
+.western-page .astro-hero .astro-shell { width:min(1120px,100%); margin:auto; }
+.western-page .astro-eyebrow { color:#d9bd88; font-size:9px; letter-spacing:2.2px; font-weight:800; text-transform:uppercase; }
+.western-page .astro-hero h1 {
+  margin:18px 0 14px; color:#fbf7ef; font-size:clamp(43px,7vw,76px);
+  line-height:1.02; letter-spacing:-2.8px; font-weight:650;
+}
+.western-page .astro-hero h1 em { color:#e6d0a6; font-family:Georgia,serif; font-weight:400; }
+.western-page .astro-hero p { max-width:650px; color:#bdc6d5; font-size:13px; line-height:1.9; }
+.western-page .astro-divider { width:110px; margin:25px 0 15px; color:#e3c891; border-top:1px solid rgba(216,183,121,.55); }
+.western-page .astro-divider span { display:inline-block; padding:7px 10px 0 0; }
+.western-page .astro-back { color:#e8d3a9; font-size:11px; text-decoration:none; }
+.western-page .astro-section {
+  padding:36px 20px 76px;
+  background:linear-gradient(180deg,#f4f0e8,#ebe6dc);
+}
+.western-page .western-page-grid {
+  width:min(1120px,100%); margin:auto; display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  align-items:start; gap:20px;
+}
+.western-page .astro-panel {
+  min-width:0; padding:clamp(19px,3vw,29px);
+  border:1px solid #e2d8c8; border-radius:17px;
+  background:#fffdf9; box-shadow:0 14px 38px rgba(28,35,52,.07);
+}
+.western-page .astro-panel > h2 {
+  margin:9px 0 9px; color:#19243b; font-size:clamp(21px,2.6vw,29px);
+  line-height:1.2; letter-spacing:-.8px;
+}
+.western-page .astro-panel > p { color:#687286; font-size:12px; line-height:1.8; }
+.western-page .astro-sign-grid {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:20px 0 16px;
+}
+.western-page .astro-sign {
+  min-width:0; min-height:91px; display:flex; flex-direction:column; align-items:flex-start;
+  justify-content:center; gap:3px; padding:10px; text-align:left; cursor:pointer;
+  border:1px solid #e7dfd2; border-radius:11px; color:#27334c; background:#f8f5ef;
+  transition:transform .18s,border-color .18s,background .18s,box-shadow .18s;
+}
+.western-page .astro-sign:hover { transform:translateY(-2px); border-color:#c7a66d; }
+.western-page .astro-sign.is-selected {
+  border-color:#b99254; background:#f2e7d2; box-shadow:inset 0 0 0 1px #d7bc8e;
+}
+.western-page .astro-sign span { color:#9a7746; font:24px/1 Georgia,serif; }
+.western-page .astro-sign strong { font-size:11px; }
+.western-page .astro-sign small { color:#858b96; font-size:8px; }
+.western-page .astro-field { min-width:0; margin:0 0 14px; }
+.western-page .astro-field label { display:block; margin:0 0 7px; color:#37445b; font-size:10px; font-weight:750; letter-spacing:.25px; }
+.western-page .astro-field input,.western-page .astro-field select {
+  width:100%; min-width:0; min-height:44px; padding:10px 12px; border:1px solid #ded8ce;
+  border-radius:9px; outline:none; color:#202d45; background:#fffefa; font:inherit; font-size:12px;
+}
+.western-page .astro-field input:focus,.western-page .astro-field select:focus {
+  border-color:#b99359; box-shadow:0 0 0 3px rgba(185,147,89,.13);
+}
+.western-page .astro-field input:disabled { opacity:.55; cursor:not-allowed; background:#efede8; }
+.western-page .astro-field small { display:block; margin-top:6px; color:#858b96; font-size:9px; line-height:1.6; }
+.western-page .western-form-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.western-page .astro-btn {
+  min-height:45px; display:inline-flex; align-items:center; justify-content:center; gap:13px;
+  padding:12px 18px; border:1px solid #c9a66c; border-radius:9px; cursor:pointer;
+  color:#17213a; background:linear-gradient(110deg,#f0d9a8,#d3b174);
+  font-size:11px; font-weight:800; text-decoration:none; transition:filter .2s,transform .2s;
+}
+.western-page .astro-btn:hover { filter:brightness(1.04); transform:translateY(-1px); }
+.western-page .astro-btn:disabled { opacity:.65; cursor:wait; transform:none; }
+.western-page .astro-result {
+  margin-top:15px; padding:14px; border:1px solid #e7ddcd; border-radius:10px;
+  color:#4c586d; background:#f7f3eb; font-size:11px; line-height:1.8; overflow-wrap:anywhere;
+}
+.western-page .astro-result h3 { margin:0 0 8px; color:#1a2740; font-size:17px; }
+.western-page .astro-result p { color:#5d687a; font-size:11px; line-height:1.8; }
+.western-page .astro-status,.western-page .astro-note {
+  margin-top:14px; padding:12px; border-left:2px solid #c4a16b; color:#737d8c;
+  background:#f6f2ea; font-size:10px; line-height:1.7;
+}
+.western-page .astro-feature-list { display:grid; gap:12px; padding:0; margin:18px 0; list-style:none; }
+.western-page .astro-feature-list li { display:flex; align-items:flex-start; gap:11px; color:#647084; font-size:11px; line-height:1.7; }
+.western-page .astro-feature-list i { width:25px; flex:0 0 25px; color:#a17e4b; font-size:16px; }
+.western-page .astro-feature-list strong { color:#26334b; }
+.western-page .astro-btn-outline { color:#25314a; background:transparent; }
+.western-page .western-life-panel { grid-column:2; grid-row:1 / span 2; }
+.western-page .western-life-panel .astro-form { margin-top:20px; }
+.western-page .western-life-result { scroll-margin-top:90px; }
+
+/* Results are created by western_astro.js; keep its class hooks and data untouched. */
+.western-page .western-life-section {
+  margin:17px 0; padding:17px; border:1px solid #e7dece; border-radius:13px; background:#fffdf9;
+}
+.western-page .western-life-section > h4 { margin:0 0 13px; color:#1c2942; font-size:15px; }
+.western-page .western-report-intro { color:#697487; font-size:11px; line-height:1.8; }
+.western-page .western-big-three-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:12px 0; }
+.western-page .western-placement-card {
+  min-width:0; padding:12px 9px; border:1px solid #e7dece; border-radius:10px;
+  background:linear-gradient(145deg,#faf7f0,#f0e9dc);
+}
+.western-page .western-placement-card > span { display:block; color:#a17e4b; font-size:19px; }
+.western-page .western-placement-card small { display:block; margin-top:7px; color:#8a795e; font-size:8px; text-transform:uppercase; letter-spacing:1px; }
+.western-page .western-placement-card strong { display:block; margin:5px 0; color:#1d2a43; font-size:12px; overflow-wrap:anywhere; }
+.western-page .western-placement-card p { margin:0; color:#778092; font-size:9px; line-height:1.5; }
+.western-page .western-narrative-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.western-page .western-narrative-card,.western-page .western-balance-card {
+  min-width:0; padding:14px; border:1px solid #e7dece; border-radius:11px; background:#fffefa;
+}
+.western-page .western-narrative-heading { display:flex; align-items:center; gap:9px; margin-bottom:9px; }
+.western-page .western-narrative-icon { width:29px; height:29px; display:grid; place-items:center; flex:0 0 29px; border-radius:8px; color:#9a7746; background:#f2e8d7; }
+.western-page .western-narrative-heading small { color:#9a805b; font-size:8px; letter-spacing:.9px; text-transform:uppercase; }
+.western-page .western-narrative-heading h5 { margin:3px 0 0; color:#1d2a43; font-size:12px; }
+.western-page .western-narrative-copy { margin:0; color:#657084; font-size:10px; line-height:1.8; }
+.western-page .western-evidence { margin-top:10px; }
+.western-page .western-evidence-chips { display:flex; flex-wrap:wrap; gap:5px; }
+.western-page .western-evidence-chips span { padding:5px 7px; border-radius:20px; color:#786344; background:#f3ecdf; font-size:8px; }
+.western-page .western-scores-grid,.western-page .western-balance-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:12px; }
+.western-page .western-score-item { padding:11px; border:1px solid #e8dfd0; border-radius:9px; background:#f8f5ef; }
+.western-page .western-score-item strong,.western-page .western-score-item span { display:block; color:#26334b; font-size:11px; }
+.western-page .western-score-item span { margin-top:5px; color:#a17e4b; font-weight:800; font-size:16px; }
+.western-page .western-score-item small { display:block; margin-top:5px; color:#7a8493; font-size:9px; line-height:1.5; }
+.western-page .western-table-wrap { max-width:100%; overflow-x:auto; border:1px solid #e7dece; border-radius:10px; }
+.western-page .western-planet-table { width:100%; border-collapse:collapse; font-size:10px; }
+.western-page .western-planet-table th { color:#f4ead7; background:#202c47; text-align:left; }
+.western-page .western-planet-table th,.western-page .western-planet-table td { padding:9px 10px; border-bottom:1px solid #ece5d9; white-space:nowrap; }
+.western-page .western-planet-table td { color:#5d687a; }
+.western-page .western-planet-table tr:nth-child(even) td { background:#faf7f1; }
+.western-page .western-balance-row { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid #eee7dc; color:#657084; font-size:10px; }
+.western-page .western-balance-row strong { color:#26334b; }
+.western-page .astro-result ul { padding-left:18px; color:#657084; font-size:10px; line-height:1.8; }
+.western-page .astro-result > small { color:#858b96; font-size:9px; }
+
+@media (max-width:900px) {
+  .western-page .western-page-grid { grid-template-columns:1fr; max-width:720px; }
+  .western-page .western-life-panel { grid-column:auto; grid-row:auto; }
+}
+@media (max-width:560px) {
+  .western-page .astro-hero { padding:105px 19px 50px; }
+  .western-page .astro-section { padding:20px 12px 55px; }
+  .western-page .astro-panel { padding:17px 14px; border-radius:13px; }
+  .western-page .astro-sign-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+  .western-page .astro-sign { min-height:78px; padding:8px 7px; }
+  .western-page .astro-sign span { font-size:21px; }
+  .western-page .astro-sign strong { font-size:10px; }
+  .western-page .astro-sign small { font-size:7px; }
+  .western-page .western-form-row { grid-template-columns:1fr 1fr; gap:9px; }
+  .western-page .western-big-three-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .western-page .western-narrative-grid { grid-template-columns:1fr; }
+  .western-page .western-scores-grid,.western-page .western-balance-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .western-page .western-life-section { padding:12px; }
+}
+@media (max-width:360px) {
+  .western-page .western-form-row { grid-template-columns:1fr; }
+  .western-page .astro-sign small { display:none; }
+}
+
+/* Western page — restore Pandit AI brand colors */
+.western-page .site-header .brand-copy strong {
+  color: #ffffff !important;
+}
+
+.western-page .site-header .brand-copy strong span {
+  color: #e5bd68 !important;
+}
