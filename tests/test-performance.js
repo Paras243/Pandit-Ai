@@ -1,0 +1,30 @@
+const assert = require('node:assert/strict');
+let active = 0, peak = 0;
+global.fetch = async (url, options) => {
+  active++; peak = Math.max(peak, active);
+  await new Promise(r => setTimeout(r, 15));
+  active--;
+  const path = String(url);
+  let data = { ok: true };
+  if (path.endsWith('/match/ashtakoot')) data = { total: 28, max: 36, conclusion: 'Mock result', kootas: [{name:'varna',score:1,max:1}] };
+  if (path.endsWith('/kundli')) data = { lagna:{sign:'virgo'}, planets:{mars:{sign:'aries'},moon:{sign:'taurus'},venus:{sign:'libra'},jupiter:{sign:'sagittarius'}} };
+  if (path.endsWith('/kundli/divisional')) data = { charts: { D9: { lagna:{sign:'cancer'}, planets:{mars:{sign:'leo'}} } } };
+  if (path.endsWith('/dasha/vimshottari/current')) data = { mahadasha:{planet:'Jupiter'}, antardasha:{planet:'Saturn'} };
+  if (path.endsWith('/match/manglik')) data = { both_manglik:true, person_a:{manglik:true}, person_b:{manglik:true} };
+  if (path.endsWith('/match/papasamyam')) data = { result:'satisfactory', groom:{total:2}, bride:{total:2} };
+  if (path.endsWith('/match/dashakoot')) data = { score:7, max:10, poruthams:[] };
+  return { ok:true, status:200, text: async()=>JSON.stringify({success:true,data}) };
+};
+process.env.ASTROLOGICS_API_KEY='mock';
+const fn = require('./netlify/functions/kundali-matching');
+(async()=>{
+ const event={httpMethod:'POST',body:JSON.stringify({consent:true,personA:{date:'2001-12-09',time:'01:05',place:'Nowshera, India',role:'groom'},personB:{date:'2002-01-01',time:'10:00',place:'Jammu, India',role:'bride'}})};
+ const response=await fn.handler(event);
+ assert.equal(response.statusCode,200, response.body);
+ const payload=JSON.parse(response.body);
+ assert.equal(payload.success,true);
+ assert.equal(payload.data.total,28);
+ assert.ok(payload.advanced);
+ assert.ok(peak <= 4, `Concurrency cap exceeded: ${peak}`);
+ console.log('Mock test passed. Peak provider concurrency:',peak,'; provider calls:',14);
+})().catch(e=>{console.error(e);process.exit(1)});
