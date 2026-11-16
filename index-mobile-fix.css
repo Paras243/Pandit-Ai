@@ -1,0 +1,105 @@
+
+
+/* ==========================================================
+   PANDIT AI HOME — FINAL MOBILE WIDTH / HERO ALIGNMENT FIX
+   Load this after index.css.css. Desktop layout is untouched.
+========================================================== */
+@media (max-width: 760px) {
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-shell {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-shell > main {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* The hero was being constrained by its containing layout.
+     Break it out to the full mobile viewport and center its grid. */
+  .site-shell > main > .hero {
+    position: relative;
+    display: grid;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-content: start;
+    box-sizing: border-box;
+  }
+
+  .site-shell > main > .hero .hero-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .site-shell > main > .hero .eyebrow,
+  .site-shell > main > .hero h1,
+  .site-shell > main > .hero .hero-lead,
+  .site-shell > main > .hero .hero-actions {
+    justify-self: center;
+    min-width: 0;
+  }
+
+  .site-shell > main > .hero .hero h1 {
+    overflow-wrap: normal;
+  }
+
+  .site-shell > main > .hero .cosmic-visual {
+    justify-self: center;
+    left: auto;
+    right: auto;
+    max-width: min(88vw, 390px);
+  }
+
+  /* Prevent the next section from inheriting accidental fixed widths. */
+  .site-shell > main > .intro-strip,
+  .site-shell > main > .pai-astro-choice {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pai-astro-container,
+  .pai-astro-layout,
+  .pai-astro-options {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .pai-astro-card,
+  .pai-astro-card-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-shell > main > .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .site-shell > main > .hero .hero-actions {
+    max-width: 100%;
+  }
+}

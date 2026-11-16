@@ -393,7 +393,7 @@ async function explainKundaliMatching(matchData, language, question, apiKey) {
   if (!safeMatch) return respond(400, { error: "A valid AstroLogics Ashtakoot matching result is required." });
   const lang = language === "hi" ? "Hindi" : "English";
   const system = `You are Paras Baba's AI Jyotish consultation assistant. Write in ${lang} like a calm, experienced, respectful traditional Pandit. Use only the supplied chart and matching data. Speak naturally to the couple. Do not sound like software documentation. Never show API errors, HTTP status codes, internal field names, raw JSON, calculation coverage, provider logs, or technical diagnostics. Clearly state match / mixed / needs review for each available traditional measure. If a calculation is missing, say only that this particular reading could not be completed at present; never invent a result. Distinguish provider Manglik matching from individual D1 screening, and Ashtakoota Yoni from Tamil Yoni. Never infer missing D9 planets, cancellations, remedies, marriage dates, fertility, health, or longevity. Do not make a final decision for the couple.`;
-  const user = `Question: ${String(question || "Give a concise marriage compatibility reading.").slice(0, 240)}\n\nVerified data only:\n${JSON.stringify(safeMatch)}\n\nWrite exactly 6 short sections, each no more than 2 concise sentences: 1. Overall compatibility score (state the exact score out of 100 and whether it is provisional or complete, using advanced.finalReview; if no score exists, say no overall score is available yet); 2. Ashtakoota; 3. Tamil 10-Porutham; 4. Papasamyam; 5. Manglik and D1/D9; 6. Overall guidance. Keep the full answer under 190 words. Mention only available findings. For unavailable calculations, use one brief natural sentence and do not mention technical reasons or codes. Do not repeat raw tables.`;
+  const user = `Question: ${String(question || "Give a complete, clear marriage compatibility reading.").slice(0, 300)}\n\nVerified data only:\n${JSON.stringify(safeMatch)}\n\nWrite a complete but readable consultation in 6 clearly titled sections: 1. Overall compatibility score — give the exact score out of 100 and clearly label it provisional or complete using advanced.finalReview; if unavailable, say so. 2. Ashtakoota — explain the total and the most relevant individual kootas, including any low-scoring or sensitive kootas that are actually supplied. 3. Tamil 10-Porutham — explain each available porutham result and the overall assessment. 4. Papasamyam — explain the available comparison and its conclusion. 5. Manglik, D1/D9 and Dasha — distinguish the provider's couple-level Manglik result from each person's D1 screening; discuss D9 and Dasha only when actual data is present. 6. Overall guidance — summarize strengths, areas needing discussion, and a balanced next step for the couple. Use up to 3 concise sentences per section and aim for 300–400 words when the data supports it. Do not force length when important calculations are unavailable. Mention only supplied findings; never invent missing results, cancellations, remedies, dates, fertility, health, or longevity. Do not repeat raw tables or expose technical errors, codes, or internal field names.`;
   let lastError = "Groq could not process the matching report.";
   let lastStatus = 502;
   for (const model of GROQ_MODELS) {
@@ -404,11 +404,14 @@ async function explainKundaliMatching(matchData, language, question, apiKey) {
         body: JSON.stringify({
           model,
           messages: [{ role: "system", content: system }, { role: "user", content: user }],
-          max_completion_tokens: 1400,
-          temperature: 0.25,
+          // GPT-OSS reasoning tokens count toward max_completion_tokens.
+          // Allow room for reasoning and the complete six-section consultation.
+          max_completion_tokens: 2800,
+          reasoning_effort: "low",
+          temperature: 0.2,
           stream: false
         }),
-        signal: AbortSignal.timeout(18000)
+        signal: AbortSignal.timeout(25000)
       });
       const raw = await response.text();
       let json = {}; try { json = JSON.parse(raw); } catch { /* handled below */ }
@@ -419,12 +422,21 @@ async function explainKundaliMatching(matchData, language, question, apiKey) {
         break;
       }
       const explanation = json?.choices?.[0]?.message?.content?.trim();
+      const finishReason = json?.choices?.[0]?.finish_reason || null;
       if (!explanation) { lastStatus = 502; lastError = "Groq returned an empty matching explanation."; continue; }
+
+      // If the primary model still hits its completion ceiling, try the stronger fallback
+      // instead of immediately showing a cut-off consultation.
+      if (finishReason === "length" && model !== GROQ_MODELS[GROQ_MODELS.length - 1]) {
+        lastError = "The primary model returned a truncated matching explanation.";
+        continue;
+      }
+
       return respond(200, {
         success: true, topic: "kundali_matching", explanation: normalizeExplanationForCards(explanation),
-        model: json.model || model, provider: "groq", finishReason: json.choices?.[0]?.finish_reason || null,
+        model: json.model || model, provider: "groq", finishReason,
         matching: safeMatch,
-        engine: { name: "paras-baba-kundali-matching-consultation", version: "4.1.0", source: "AstroLogics combined traditional matching measures" }
+        engine: { name: "paras-baba-kundali-matching-consultation", version: "4.2.0", source: "AstroLogics combined traditional matching measures" }
       });
     } catch (error) {
       lastStatus = error.name === "TimeoutError" || error.name === "AbortError" ? 504 : 502;
